@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <h2 class="reservation-text text-center my-5">Make an Appointment</h2>
+    <div class="reservation-form-container p-4 rounded shadow-sm bg-white">
+        <form method="POST" novalidate>
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group">
+                {{ form.full_name.label_tag }} {{ form.full_name }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label_tag }} {{ form.email }}
+            </div>
+            <div class="form-group">
+                {{ form.phone_number.label_tag }} {{ form.phone_number }}
+            </div>
+            <div class="form-group">
+                {{ form.contact_method.label_tag }} {{ form.contact_method }}
+            </div>
+            <div class="form-group">
+                {{ form.service_required.label_tag }} {{ form.service_required }}
+            </div>
+            <div class="form-group">
+                {{ form.date.label_tag }} {{ form.date }}
+            </div>
+            <div class="form-group">
+                {{ form.time.label_tag }} {{ form.time }}
+            </div>
+            <div class="form-group">
+                {{ form.additional_details.label_tag }} {{ form.additional_details }}
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Request an Appointment</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

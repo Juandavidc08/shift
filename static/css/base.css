@@ -66,6 +66,7 @@ body {
     width: 100%; /* Allow container to take up available space */
     margin: 2rem auto; /* Center container with margin */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    backdrop-filter: blur(2px);
 }
 
 /* Adjust font sizes for readability */
@@ -74,6 +75,7 @@ body {
     color: #fff; /* White color for contrast */
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for text to make it stand out */
+    
 }
 
 .transparent-container p {
@@ -81,6 +83,17 @@ body {
     color: #fff; /* White text for better contrast */
     line-height: 1.6; /* Increase line height for better readability */
 }
+
+
+.reservation-form-container {
+    max-width: 500px;
+    margin: auto;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+}
+
 
 /* -------------------------------- Media Queries */
 
@@ -125,5 +138,9 @@ body {
 
     .transparent-container p {
         font-size: 0.9rem; /* Slightly smaller text for mobile */
+    }
+    .reservation-form-container {
+        position: relative; 
+        top: 180px;
     }
 }
