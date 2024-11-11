@@ -1,77 +1,88 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
-  {% load static %}
-  {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Shift PersonalCare Express, Tu estilo donde tú estés, inmediatez real servicio garantizado en 30 minutos de reserva o menos">
-    <meta name="keywords" content="Shift, Personal Care, Barber Delivery, delivery, peluquería, barbero, cabello, domicilio, belleza, estilo, en casa">
-  {% endblock %}
-  {% block corecss %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-  {% endblock %}
-  <title>Shift {% block extra_title %}{% endblock %}</title>
+    {% block meta %}
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="Shift PersonalCare Express, Tu estilo donde tú estés, inmediatez real servicio garantizado en 30 minutos de reserva o menos">
+        <meta name="keywords" content="Shift, Personal Care, Barber Delivery, delivery, peluquería, barbero, cabello, domicilio, belleza, estilo, en casa ">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
+
+    {% block corecss %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
+
+    {% block corejs %}
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+        <script src="https://kit.fontawesome.com/485eda7821.js" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    <title>Shift {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
-  <header class="container-fluid fixed-top bg-white">
-    <div class="row align-items-center py-2">
-      <!-- Logo Section -->
-      <div class="col-4 text-center text-lg-left">
-        <a href="{% url 'home' %}" class="nav-link main-logo-link">
-          <h1 class="logo-font text-black my-0"><strong>Shift</strong></h1>
-          <p class="mb-0">PersonalCare Express</p>
-        </a>
-      </div>
-      
-      <!-- Account Dropdown Section -->
-      <div class="col-4 text-center">
-        <a href="{% url 'home' %}" class="text-black nav-link">
-          <h5 class="font-weight-bold mb-0">Tu estilo, donde tú estés</h5>
-        </a>
-      </div>
+    <header class="container-fluid fixed-top">
+        <div id="topnav" class="row pt-2 pb-2 align-items-center">
+            <!-- Logo and Tagline Section -->
+            <div class="col-12 col-lg-4 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h1 class="logo-font text-black my-0"><strong>Shift</strong></h1>
+                    <p class="text-black my-0">Tu estilo, donde tú estés</p>
+                </a>
+            </div>          
+            
+            <!-- Center Column (empty for spacing) -->
+            <div class="d-none d-lg-block col-lg-4"></div>
 
-      <div class="col-4 text-lg-right text-center">
-        <ul class="list-inline mb-0">
-          <li class="list-inline-item dropdown">
-            <a class="text-black nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-user fa-lg"></i>
-              <p class="mb-0">Mi Cuenta</p>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
-              {% if request.user.is_authenticated %}
-                {% if request.user.is_superuser %}
-                  <a href="#" class="dropdown-item">Administración de Productos</a>
-                {% endif %}
-                <a href="#" class="dropdown-item">Mi Perfil</a>
-                <a href="{% url 'account_logout' %}" class="dropdown-item">Cerrar sesión</a>
-              {% else %}
-                <a href="{% url 'account_signup' %}" class="dropdown-item">Registrarse</a>
-                <a href="{% url 'account_login' %}" class="dropdown-item">Iniciar sesión</a>
-              {% endif %}
+            <!-- Account Dropdown Section -->
+            <div class="col-12 col-lg-4 text-center text-lg-right my-auto">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <i class="fas fa-user fa-lg"></i>
+                                <p class="my-0">Mi Cuenta</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="#" class="dropdown-item">Administración de Productos</a>
+                                {% endif %}
+                                <a href="#" class="dropdown-item">Mi Perfil</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Cerrar sesión</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Registrarse</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Iniciar sesión</a>
+                            {% endif %}
+                        </div>
+                    </li>
+                </ul>
             </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </header>
+        </div>
+    </header>
 
-  <!-- Page Content -->
-  <main class="container mt-5 pt-5">
-    {% block content %}
-    <div class="text-center">
-      <h1 class="display-4 font-weight-bold">Tu estilo, donde tú estés</h1>
-      <p>En <strong>Shift</strong>, te ofrecemos un servicio de peluquería y estética a domicilio. Con solo una reserva, nuestro equipo llega a tu ubicación en 30 minutos, brindando una experiencia exclusiva y sin complicaciones.</p>
-      <a href="#" class="btn btn-lg btn-primary rounded-0 mt-4">Reservar</a>
-    </div>
+    {% block page_header %}
     {% endblock %}
-  </main>
 
-  {% block corejs %}
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    {% endblock %}
 </body>
 </html>

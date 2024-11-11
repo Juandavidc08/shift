@@ -1,0 +1,129 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/background.jpeg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato';
+}
+
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Make the content container more square and visually balanced */
+.transparent-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    padding: 2rem; /* Add padding for spacing inside */
+    border-radius: 10px; /* Rounded corners for smooth design */
+    max-width: 900px; /* Max width for consistency */
+    width: 100%; /* Allow container to take up available space */
+    margin: 2rem auto; /* Center container with margin */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+/* Adjust font sizes for readability */
+.transparent-container h2 {
+    font-size: 2rem; /* Large title */
+    color: #fff; /* White color for contrast */
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow for text to make it stand out */
+}
+
+.transparent-container p {
+    font-size: 1.2rem; /* Slightly smaller font for the text */
+    color: #fff; /* White text for better contrast */
+    line-height: 1.6; /* Increase line height for better readability */
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* Background adjustments for mobile devices */
+@media (max-width: 767px) {
+    body {
+        background-position: center center; /* Ensures the background is centered */
+        background-size: cover; /* This makes sure the image covers the screen without stretching */
+    }
+    .transparent-container {
+        position: relative; 
+        top: 180px;
+        padding: 1.5rem; /* Less padding for small screens */
+        max-width: 90%; /* Allow the container to take up most of the screen width */
+    }
+
+    .transparent-container h2 {
+        font-size: 2rem; /* Smaller font size on mobile */
+    }
+
+    .transparent-container p {
+        font-size: 0.9rem; /* Slightly smaller text for mobile */
+    }
+}
