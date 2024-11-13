@@ -3,11 +3,12 @@ html {
 }
 
 body {
-    background: url('/media/background.jpeg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
     font-family: 'Lato';
+    margin: 0;
+    padding: 0;
+
 }
 
 
@@ -27,6 +28,32 @@ body {
 .main-logo-link {
     width: fit-content;
 }
+
+/* Navbar Styling */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.hero-image {
+    background-image: url('../shift-background.jpeg');  /* Add the URL to your image */
+    background-size: cover;                  /* Ensures the image covers the entire div */
+    background-position: center;             /* Centers the image */
+    height: 75vh;                           /* Makes the div cover the full height of the viewport */                         /* Text color */
+    display: flex;                           /* Centers content vertically and horizontally */
+    justify-content: center;                 /* Centers the content horizontally */
+    align-items: center;                     /* Centers the content vertically */
+    text-align: center;                      /* Centers text inside the div */
+  }
+  
 
 .shop-now-button {
     background: black;
@@ -62,9 +89,9 @@ body {
     background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     padding: 2rem; /* Add padding for spacing inside */
     border-radius: 10px; /* Rounded corners for smooth design */
-    max-width: 900px; /* Max width for consistency */
+    max-width: 1200px; /* Max width for consistency */
     width: 100%; /* Allow container to take up available space */
-    margin: 2rem auto; /* Center container with margin */
+    
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
     backdrop-filter: blur(2px);
 }
@@ -86,12 +113,41 @@ body {
 
 
 .reservation-form-container {
-    max-width: 500px;
+    max-width: 700px;
     margin: auto;
     padding: 2rem;
     background: rgba(0, 0, 0, 0.7);;
     border-radius: 10px;
     backdrop-filter: blur(2px);
+    color:#fff;
+}
+
+
+.form-group {
+    font-size: 1.2rem; /* Increase font size for readability */
+}
+
+.form-control {
+    width: 100%; /* Make input fields fill the form */
+    padding: 12px; /* Add some padding to make inputs feel larger */
+    border-radius: 8px; /* Rounded corners for a sleek look */
+    font-size: 1.1rem; /* Increase font size of the inputs */
+    color:#fff;
+}
+
+.form-control:focus {
+    border-color: #2d2f30; /* Blue border on focus for visual cue */
+    box-shadow: 0 0 5px rgba(1, 31, 63, 0.5); /* Focus shadow */
+}
+
+.container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.col-md-6 {
+    padding: 20px;  /* Optional: adds space between text and button columns */
 }
 
 
@@ -115,16 +171,12 @@ body {
     }
 
     .header-container {
-        padding-top: 164px;
+        padding-top: 100px;
     }
 }
 
 /* Background adjustments for mobile devices */
 @media (max-width: 767px) {
-    body {
-        background-position: center center; /* Ensures the background is centered */
-        background-size: cover; /* This makes sure the image covers the screen without stretching */
-    }
     .transparent-container {
         position: relative; 
         top: 180px;
@@ -142,5 +194,14 @@ body {
     .reservation-form-container {
         position: relative; 
         top: 180px;
+    }
+    
+    .hero-image{
+        margin-top: 150px;
+    }
+
+    .contactanos-btn{
+        position: fixed;
+        top: 620px;
     }
 }

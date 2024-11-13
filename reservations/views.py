@@ -3,6 +3,7 @@ from .forms import ReservationForm
 from django.utils import timezone
 from django.contrib import messages
 
+# View for creating a reservation
 def make_reservation(request):
     if request.method == "POST":
         form = ReservationForm(request.POST)
@@ -16,7 +17,13 @@ def make_reservation(request):
             else:
                 form.save()
                 messages.success(request, "Reservation successfully created.")
-                return redirect('reservation_success')
+                return redirect('reservation_success')  # Redirect to the success page
     else:
         form = ReservationForm()
+    
     return render(request, 'reservations/make_reservation.html', {'form': form})
+
+
+# Success page view
+def reservation_success(request):
+    return render(request, 'reservations/success.html')

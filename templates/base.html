@@ -36,44 +36,50 @@
 </head>
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row pt-2 pb-2 align-items-center">
-            <!-- Logo and Tagline Section -->
-            <div class="col-12 col-lg-4 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h1 class="logo-font text-white my-0"><strong>Shift</strong></h1>
-                    <p class="text-white my-0">Tu estilo, donde tú estés</p>
-                </a>
-            </div>          
-            
-            <!-- Center Column (empty for spacing) -->
-            <div class="d-none d-lg-block col-lg-4"></div>
-
-            <!-- Account Dropdown Section -->
-            <div class="col-12 col-lg-4 text-center text-lg-right my-auto">
-                <ul class="list-inline mb-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-white nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <i class="fas fa-user fa-lg text-white"></i>
-                                <p class="my-0">Mi Cuenta</p>
-                            </div>
+        <body>
+            <header class="container-fluid fixed-top">
+                <div id="topnav" class="row pt-2 pb-2 align-items-center">
+                    <!-- Logo and Tagline Section -->
+                    <div class="col-6 col-lg-4 text-center text-lg-left">
+                        <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                            <h1 class="logo-font text-black my-0"><strong>Shift</strong></h1>
+                            <p class="text-black my-0">Tu estilo, donde tú estés</p>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Administración de Productos</a>
-                                {% endif %}
-                                <a href="#" class="dropdown-item">Mi Perfil</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Cerrar sesión</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Registrarse</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Iniciar sesión</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
+                    </div>          
+        
+                    <!-- Center Column (empty for spacing, visible only on large screens) -->
+                    <div class="d-none d-lg-block col-lg-4"></div>
+        
+                    <!-- Account Dropdown Section -->
+                    <div class="col-6 col-lg-4 text-center text-lg-right my-auto d-flex justify-content-between">
+                        <!-- Account section content -->
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item dropdown">
+                                <a class="text-black nav-link dropdown-toggle" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="text-center">
+                                        <i class="fas fa-user fa-lg text-black"></i>
+                                        <p class="my-0 text-black">Mi Cuenta</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right border-0" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
+                                        {% if request.user.is_superuser %}
+                                            <a href="#" class="dropdown-item">Administración de Productos</a>
+                                        {% endif %}
+                                        <a href="#" class="dropdown-item">Mi Perfil</a>
+                                        <a href="{% url 'account_logout' %}" class="dropdown-item">Cerrar sesión</a>
+                                    {% else %}
+                                        <a href="{% url 'account_signup' %}" class="dropdown-item">Registrarse</a>
+                                        <a href="{% url 'account_login' %}" class="dropdown-item">Iniciar sesión</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </body>
+        
     </header>
 
     {% block page_header %}
