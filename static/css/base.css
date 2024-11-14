@@ -11,6 +11,9 @@ body {
 
 }
 
+.cuenta {
+    left: 300px !important;
+}
 
 /* from Bulma */
 .icon {
@@ -44,15 +47,31 @@ body {
 }
 
 .hero-image {
-    background-image: url('../shift-background.jpeg');  /* Add the URL to your image */
-    background-size: cover;                  /* Ensures the image covers the entire div */
-    background-position: center;             /* Centers the image */
-    height: 75vh;                           /* Makes the div cover the full height of the viewport */                         /* Text color */
-    display: flex;                           /* Centers content vertically and horizontally */
-    justify-content: center;                 /* Centers the content horizontally */
-    align-items: center;                     /* Centers the content vertically */
-    text-align: center;                      /* Centers text inside the div */
-  }
+    position: relative;
+    width: 100%;
+    height: 75vh;                   /* Sets the height for the hero section */
+    overflow: hidden;               /* Hides overflow to keep video contained */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;              /* Ensures video covers the entire area */
+    z-index: -1;                    /* Places the video behind overlay text */
+}
+
+.d-md-none {
+    position: relative;
+    z-index: 1;                     /* Ensures the text overlay appears above the video */
+    color: black;                   /* Sets text color for contrast */
+    font-weight: bold;
+}
   
 
 .shop-now-button {
@@ -150,6 +169,17 @@ body {
     padding: 20px;  /* Optional: adds space between text and button columns */
 }
 
+.footerimage{
+    background-image: url('../canva.jpeg');  /* Add the URL to your image */
+    background-size: cover;                  /* Ensures the image covers the entire div */
+    background-position: center;             /* Centers the image */
+    height: 75vh;                           /* Makes the div cover the full height of the viewport */                         /* Text color */
+    display: flex;                           /* Centers content vertically and horizontally */
+    justify-content: center;                 /* Centers the content horizontally */
+    align-items: center;                     /* Centers the content vertically */
+    text-align: center;                      /* Centers text inside the div */
+  
+}
 
 /* -------------------------------- Media Queries */
 
@@ -189,7 +219,7 @@ body {
     }
 
     .transparent-container p {
-        font-size: 0.9rem; /* Slightly smaller text for mobile */
+        font-size: 1.1rem; /* Slightly smaller text for mobile */
     }
     .reservation-form-container {
         position: relative; 
@@ -204,4 +234,16 @@ body {
         position: fixed;
         top: 620px;
     }
+
+    .cuenta {
+        left: 60px !important;
+    }
+
+    .hero-text {
+        color: white;               /* Sets text color to white */
+        font-weight: 700;           /* Makes the text bolder */
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);  /* Optional: adds a shadow for better readability */
+    }
+    
+
 }

@@ -11,11 +11,20 @@
 
 {% block content %}
 
-    <div class="hero-image">
-        <div class="d-flex justify-content-center align-items-center position-absolute w-100 h-100 text-center text-black d-md-none">
-            <p class="display-4">¡En 30 minutos, tu estilo sin salir de tu hotel!</p>
-        </div>
+<div class="hero-image">
+    <video autoplay loop muted playsinline class="background-video">
+        <source src="media/shiftvideo.mp4" type="video/mp4">
+        <!-- Add alternative video sources if necessary -->
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Overlay Text for Mobile Only -->
+    <div class="d-flex justify-content-center align-items-center position-absolute w-100 h-100 text-center d-md-none">
+        <p class="display-4 hero-text">¡En 30 minutos, tu estilo sin salir de tu hotel!</p>
     </div>
+    
+</div>
+
     <div class="container h-50 d-flex flex-column align-items-center justify-content-center">
         <div class="transparent-container text-center">
             <h2 class="logo-font font-weight-bold text-with-shadow ">
@@ -27,20 +36,20 @@
                 <div class="row">
                     <!-- Text Column -->
                     <div class="col-md-6">
-                        <p>En <strong>Shift</strong>, entendemos que cuando viajas, ya sea por trabajo o por ocio, el tiempo es valioso. Por eso, te ofrecemos un servicio de peluquería y estética a domicilio diseñado para adaptarse a tu agenda. Con solo una reserva, nuestro equipo profesional llegará a tu hotel o a donde te estés hospedando en solo <strong>30 minutos</strong>, llevándote una experiencia de cuidado personal exclusiva y sin complicaciones. Desde cortes de cabello y maquillaje hasta tratamientos de belleza, en <strong>Shift</strong> ahorramos tu tiempo y cuidamos de cada detalle para que luzcas impecable sin necesidad de salir de tu espacio.</p>
+                        <p class="texto">En <strong>Shift</strong>, entendemos que cuando viajas, ya sea por trabajo o por ocio, el tiempo es valioso. Por eso, te ofrecemos un servicio de peluquería y estética a domicilio diseñado para adaptarse a tu agenda. Con solo una reserva, nuestro equipo profesional llegará a tu hotel o a donde te estés hospedando en solo <strong>30 minutos</strong>, llevándote una experiencia de cuidado personal exclusiva y sin complicaciones. Desde cortes de cabello y maquillaje hasta tratamientos de belleza, en <strong>Shift</strong> ahorramos tu tiempo y cuidamos de cada detalle para que luzcas impecable sin necesidad de salir de tu espacio.</p>
                     </div>
             
                     <!-- Buttons Column -->
                     <div class="col-md-6">
                         <div class="my-5">
                             <h4>
-                                <a href="{% url 'make_reservation' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Reservar</a>
+                                <a href="{% url 'make_reservation' %}" class="shop-now-button btn btn-lg rounded-7 text-uppercase py-3">Reservar</a>
                             </h4>
                         </div>
             
                         <div>
                             <h4>
-                                <a href="#" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Quienes somos</a>
+                                <a href="#" class="shop-now-button btn btn-lg rounded-7 text-uppercase py-3">Quienes somos</a>
                             </h4>
                         </div>
                     </div>
@@ -51,13 +60,13 @@
             </div>
         </div>
     </div>
-    <div class="my-5 hero-image">
+    <div class="my-5 footerimage">
         <div class="my-5">
             <h4>
-                <a href="#" class=" contactanos-btn shop-now-button btn btn-lg rounded-0 text-uppercase py-3">contactanos</a>
+                <a href="#" class=" contactanos-btn shop-now-button btn btn-lg rounded-7 text-uppercase py-3 ml-2 " target="_blank">
+                    <i class="fab fa-3x text-success fa-whatsapp"></i>
+                </a>
             </h4>
-        </div>
-    
     <div class="my-5"></div>
 
 {% endblock %}
