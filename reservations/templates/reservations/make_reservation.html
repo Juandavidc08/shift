@@ -1,65 +1,122 @@
 {% extends "base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
 <div class="container">
-    <h2 class="reservation-text text-center my-5 text-white">Make an Appointment</h2>
-    <div class="reservation-form-container p-4 rounded shadow-sm ">
-        <form method="POST" novalidate>
+    <h2 class="reservation-text text-center my-5 text-black">Make an Appointment</h2>
+    <div class="reservation-form-container p-4 rounded shadow-sm">
+        <form id="reservationForm" method="POST" novalidate>
             {% csrf_token %}
             {{ form.non_field_errors }}
 
             <!-- Full Name Field -->
             <div class="form-group mb-4">
                 {{ form.full_name.label_tag }}
-                {{ form.full_name }}
+                {{ form.full_name|add_class:"form-control" }}
             </div>
 
             <!-- Email Field -->
             <div class="form-group mb-4">
                 {{ form.email.label_tag }}
-                {{ form.email }}
+                {{ form.email|add_class:"form-control" }}
+                {% if form.email.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for error in form.email.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
 
             <!-- Phone Number Field -->
             <div class="form-group mb-4">
                 {{ form.phone_number.label_tag }}
-                {{ form.phone_number }}
+                {{ form.phone_number|add_class:"form-control" }}
             </div>
 
             <!-- Contact Method Field -->
             <div class="form-group mb-4">
                 {{ form.contact_method.label_tag }}
-                {{ form.contact_method }}
+                <div class="form-check">
+                    {{ form.contact_method }}
+                </div>
+            </div>
+
+            <!-- Gender Field -->
+            <div class="form-group mb-4">
+                {{ form.gender.label_tag }}
+                <div class="form-check form-check-inline">
+                    {{ form.gender }}
+                </div>
             </div>
 
             <!-- Service Required Field -->
             <div class="form-group mb-4">
                 {{ form.service_required.label_tag }}
-                {{ form.service_required }}
+                <div class="form-check text-black">
+                    {{ form.service_required|add_class:"form-control" }}
+                </div>
             </div>
 
             <!-- Date Field -->
             <div class="form-group mb-4">
                 {{ form.date.label_tag }}
-                {{ form.date }}
+                {{ form.date|add_class:"form-control" }}
+                {% if form.date.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for error in form.date.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
 
             <!-- Time Field -->
             <div class="form-group mb-4">
                 {{ form.time.label_tag }}
-                {{ form.time }}
+                {{ form.time|add_class:"form-control" }}
+                {% if form.time.errors %}
+                    <div class="alert alert-danger" role="alert">
+                        {% for error in form.time.errors %}
+                            {{ error }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             </div>
 
-            <!-- Additional Details Field -->
-            <div class="form-group mb-4">
-                {{ form.additional_details.label_tag }}
-                {{ form.additional_details }}
+            <!-- Display form errors, including custom ones for past date/time -->
+            <div class="form-errors">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">Request an Appointment</button>
+            <button type="submit" class="btn btn-primary btn-lg rounded-0 text-uppercase py-3">Request an Appointment</button>
         </form>
     </div>
 </div>
+
+<!-- JavaScript for Flatpickr Date and Time Picker -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Initialize Flatpickr for date field
+        flatpickr("input[type='date']", {
+            minDate: "today"  // Prevent past dates
+        });
+
+        // Initialize Flatpickr for time field (you can adjust the format)
+        flatpickr("input[type='time']", {
+            enableTime: true,
+            noCalendar: true,
+            dateFormat: "H:i",  // Hour:Minute format
+        });
+    });
+</script>
 {% endblock %}

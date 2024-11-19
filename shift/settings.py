@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'reservations',
+     # other apps
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

@@ -141,6 +141,31 @@ body {
     color:#fff;
 }
 
+/* You can customize input fields for more spacing or bigger width */
+input.form-control, select.form-control {
+    padding: 1.2rem; /* increase padding */
+    font-size: 1.1rem; /* adjust font size */
+}
+
+form input, form select, form textarea {
+    color: black;  /* Ensures the text entered into input fields is black */
+}
+
+/* Optionally, style placeholder text to be black as well */
+form input::placeholder, form textarea::placeholder {
+    color: black;  /* Placeholder text will be black */
+}
+
+/* Apply translucent black background to the form */
+.reservation-form-container {
+    background-color: rgba(0, 0, 0, 0.8); /* Black with 80% opacity */
+}
+
+.form-control[readonly] {
+    background-color: #fff;
+    opacity: 1;
+    color:#000;
+}
 
 .form-group {
     font-size: 1.2rem; /* Increase font size for readability */
@@ -151,12 +176,18 @@ body {
     padding: 12px; /* Add some padding to make inputs feel larger */
     border-radius: 8px; /* Rounded corners for a sleek look */
     font-size: 1.1rem; /* Increase font size of the inputs */
-    color:#fff;
+    color: #000 !important; /* Text color for visibility */
+   
 }
 
 .form-control:focus {
     border-color: #2d2f30; /* Blue border on focus for visual cue */
     box-shadow: 0 0 5px rgba(1, 31, 63, 0.5); /* Focus shadow */
+}
+.form-check input[type="radio"]:checked + label,
+.form-check input[type="checkbox"]:checked + label,
+select.form-control {
+    color: black !important; /* Text color for selected options */
 }
 
 .container1 {
@@ -207,6 +238,12 @@ body {
 
 /* Background adjustments for mobile devices */
 @media (max-width: 767px) {
+    
+        .form-group {
+            max-width: 80%;    /* Set a smaller maximum width */
+            margin: 0 auto;    /* Center the form on the page */
+        }
+    
     .transparent-container {
         position: relative; 
         top: 180px;
@@ -247,3 +284,4 @@ body {
     
 
 }
+
